@@ -32,7 +32,6 @@ html-clock/
 2. Open `index.html` in your browser.
 
 ## 📷 Preview
-
 <img width="960" height="564" alt="image" src="https://github.com/user-attachments/assets/bd4d1ce0-c102-41be-a6f1-8ac14c955e8f" />
 
 
