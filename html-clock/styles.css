@@ -1,0 +1,164 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: radial-gradient(circle at top, #1e293b 0%, #0f172a 55%, #020617 100%);
+  color: #f8fafc;
+}
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.clock {
+  width: min(320px, 80vw);
+  aspect-ratio: 1;
+  padding: 1rem;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #334155, #1e293b);
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.45),
+    inset 0 2px 4px rgba(255, 255, 255, 0.08);
+}
+
+.face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f8fafc 0%, #e2e8f0 45%, #cbd5e1 100%);
+  box-shadow:
+    inset 0 0 24px rgba(15, 23, 42, 0.15),
+    0 0 0 4px #475569;
+}
+
+.markings {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 14px;
+  margin-left: -1.5px;
+  margin-top: calc(-50% + 18px);
+  background: #334155;
+  transform-origin: 50% calc(50% - 18px);
+  border-radius: 2px;
+}
+
+.mark.major {
+  width: 4px;
+  height: 22px;
+  margin-left: -2px;
+  margin-top: calc(-50% + 22px);
+  transform-origin: 50% calc(50% - 22px);
+  background: #0f172a;
+}
+
+.number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0f172a;
+  user-select: none;
+}
+
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  border-radius: 999px;
+  transform: translateX(-50%) rotate(0deg);
+}
+
+.hour-hand {
+  width: 8px;
+  height: 28%;
+  background: #0f172a;
+  z-index: 3;
+}
+
+.minute-hand {
+  width: 5px;
+  height: 38%;
+  background: #334155;
+  z-index: 4;
+}
+
+.second-hand {
+  width: 2px;
+  height: 42%;
+  background: #ef4444;
+  z-index: 5;
+}
+
+.second-hand::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-radius: 50%;
+  background: #ef4444;
+}
+
+.center-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: #ef4444;
+  border: 2px solid #0f172a;
+  z-index: 6;
+}
+
+.digital {
+  text-align: center;
+}
+
+#digital-time {
+  display: block;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+}
+
+#digital-date {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #94a3b8;
+  letter-spacing: 0.04em;
+}
